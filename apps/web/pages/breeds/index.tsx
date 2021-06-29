@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
+import { H2, P, A, Section, Tile } from '@ashbrook-farm/web-components';
 
 import { getAllBreeds, ApiResponse, Breed } from '../../api';
 import { getBreedPath } from '../../helpers';
@@ -21,16 +22,17 @@ export const getStaticProps: GetStaticProps<BreedsProps> = async () => {
 
 export const Breeds: FC<BreedsProps> = ({ data }) => {
   return (
-    <ul>
+    <Section>
       {data.results.map((result) => (
-        <li key={result.id}>
-          <h1>{result.data.name}</h1>
-          <div dangerouslySetInnerHTML={{ __html: result.data.intro }} />
-          <Link href={getBreedPath(result)}>Read More</Link>
-          <hr />
-        </li>
+        <Tile
+          key={result.uid}
+          title={result.data.name}
+          href={getBreedPath(result)}
+          content={result.data.intro}
+          hrefText="Find Out More"
+        />
       ))}
-    </ul>
+    </Section>
   );
 };
 

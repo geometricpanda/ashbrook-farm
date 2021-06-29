@@ -1,0 +1,46 @@
+@import '~modern-css-reset';
+
+:root {
+  --dark-blue: #34394a;
+  --cream: #faecdd;
+  --white: #fff;
+  --pale-blue: #cec8fa;
+  --vibrant-blue: #2654d1;
+  --gutter: 1.5rem;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: var(--white);
+    --primary: var(--dark-blue);
+    --secondary: var(--cream);
+    --interactive: var(--dark-blue);
+    --interactive-link: var(--vibrant-blue);
+
+    --background-invert: var(--dark-blue);
+    --primary-invert: var(--cream);
+    --secondary-invert: var(--dark-blue);
+    --interactive-invert: var(--pale-blue);
+    --interactive-link-invert: var(--pale-blue);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--dark-blue);
+    --primary: var(--cream);
+    --secondary: var(--dark-blue);
+    --interactive: var(--pale-blue);
+    --interactive-link: var(--pale-blue);
+
+    --background-invert: var(--cream);
+    --primary-invert: var(--dark-blue);
+    --secondary-invert: var(--cream);
+    --interactive-invert: var(--vibrant-blue);
+    --interactive-link-invert: var(--vibrant-blue);
+  }
+}
+
+body {
+  background-color: var(--background);
+}
