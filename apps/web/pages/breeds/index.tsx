@@ -12,6 +12,7 @@ interface BreedsProps {
 export const getStaticProps: GetStaticProps<BreedsProps> = async () => {
   const data = await getAllBreeds();
   return {
+    revalidate: 60,
     props: {
       data,
     },

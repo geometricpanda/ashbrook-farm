@@ -14,6 +14,7 @@ export const getStaticProps: GetStaticProps<BreedsProps> = async ({
   const { breed } = params;
   const data = await getBreed(breed as string);
   return {
+    revalidate: 60,
     props: {
       data,
     },
@@ -25,7 +26,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = data.results.map((result) => `/breeds/${result.uid}`);
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
