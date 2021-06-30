@@ -41,12 +41,12 @@ const StyledTileContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: calc(((100% / 12) + 24px) / 2);
-  padding-right: calc(((100% / 12) + 24px) / 2);
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 
   @media (min-width: 768px) {
+    padding-left: calc(((100% / 12) + 24px) / 2);
+    padding-right: calc(((100% / 12) + 24px) / 2);
     flex-basis: 50%;
   }
 `;
@@ -62,13 +62,23 @@ const StyledTileImage = styled.div`
 
 const StyledTileHead = styled.div`
   margin-bottom: 1rem;
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const StyledTileBody = styled.div`
   margin-bottom: 1.5rem;
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
-const StyledTileFoot = styled.div``;
+const StyledTileFoot = styled.div`
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+`;
 
 export const Tile: FC<TileProps> = ({
                                       imgUrl,

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 import { Section, Tile, P } from '@ashbrook-farm/web-components';
-
 import { getAllBreeds, ApiResponse, Breed } from '../../api';
 import { getBreedPath } from '../../helpers';
 
@@ -22,6 +22,10 @@ export const getStaticProps: GetStaticProps<BreedsProps> = async () => {
 export const Breeds: FC<BreedsProps> = ({ data }) => {
   return (
     <>
+      <Head>
+        <title>Our Breeds - Ashbrook Farm</title>
+        <meta name="description" content="At Ashbrook Farm we keep a wide variety of hens giving us a great mix of laying birds and birds that make the garden look great."/>
+      </Head>
       <Section title='Our Birds'>
         <P marginBottom>
           In our personal flocks, we keep a wide variety of hens ranging from
