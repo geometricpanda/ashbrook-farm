@@ -9,6 +9,15 @@ export interface Breed {
   name: string;
   intro: string;
   content: string;
+  preview_image: {
+    alt: string;
+    copyright: string;
+    dimensions: {
+      width: number;
+      height: number;
+    }
+    url: string;
+  }
 }
 
 export interface ApiDocument<T> extends Document {

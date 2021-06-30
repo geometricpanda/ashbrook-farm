@@ -25,6 +25,7 @@ const StyleXL = styled.span<TypeStyledProps>`
 `;
 
 const StyledLG = styled.span<TypeStyledProps>`
+  display: block;
   font-family: 'Josefin Sans', Arial, sans-serif;
   font-weight: normal;
   font-size: 1.5rem;
@@ -37,6 +38,7 @@ const StyledLG = styled.span<TypeStyledProps>`
 `;
 
 const StyledMD = styled.span<TypeStyledProps>`
+  display: block;
   font-family: 'Josefin Sans', Arial, sans-serif;
   font-weight: normal;
   font-size: 1.5rem;
@@ -49,6 +51,7 @@ const StyledMD = styled.span<TypeStyledProps>`
 `;
 
 const StyledSM = styled.span<TypeStyledProps>`
+  display: block;
   font-family: 'Josefin Sans', Arial, sans-serif;
   font-weight: normal;
   font-size: 1.125rem;

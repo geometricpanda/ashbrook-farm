@@ -1,28 +1,43 @@
-import { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
+import Image from 'next/image';
+import shortid from 'shortid';
+
 import { H3, FreeText } from '../typography';
 import { ButtonLink } from '../button';
-import Link from 'next/link';
 
 interface TileProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
   href: string;
   hrefText: string;
   content: string;
+  imgUrl: string;
+  imgDimensions: {
+    width: number;
+    height: number;
+  };
+  imgAlt: string;
 }
 
 const StyledTileContainer = styled.div`
   display: flex;
   background-color: var(--secondary);
-  flex-direction: row;
+  flex-direction: column-reverse;
+  margin-bottom: var(--gutter);
 
-  &:nth-of-type(even) {
-    flex-direction: row-reverse;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    margin-bottom: 0;
+
+    :nth-of-type(even) {
+      flex-direction: row-reverse;
+    }
   }
+
 `;
 
 const StyledTileContent = styled.div`
-  flex-basis: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,12 +45,19 @@ const StyledTileContent = styled.div`
   padding-right: calc(((100% / 12) + 24px) / 2);
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+
+  @media (min-width: 768px) {
+    flex-basis: 50%;
+  }
 `;
 
 const StyledTileImage = styled.div`
-  flex-basis: 50%;
   aspect-ratio: 1.5/1;
   background-color: burlywood;
+
+  @media (min-width: 768px) {
+    flex-basis: 50%;
+  }
 `;
 
 const StyledTileHead = styled.div`
@@ -49,16 +71,25 @@ const StyledTileBody = styled.div`
 const StyledTileFoot = styled.div``;
 
 export const Tile: FC<TileProps> = ({
-  children,
-  title,
-  hrefText,
-  href,
-  content,
-}) => {
+                                      imgUrl,
+                                      imgAlt,
+                                      imgDimensions,
+                                      title,
+                                      hrefText,
+                                      href,
+                                      content
+                                    }) => {
+
+  const [id, setId] = useState('');
+
+  useEffect(() => {
+    setId(shortid());
+  }, []);
+
   return (
     <StyledTileContainer>
       <StyledTileContent>
-        <StyledTileHead>
+        <StyledTileHead id={id}>
           <H3>{title}</H3>
         </StyledTileHead>
         <StyledTileBody>
@@ -66,11 +97,18 @@ export const Tile: FC<TileProps> = ({
         </StyledTileBody>
         <StyledTileFoot>
           <Link href={href} passHref={true}>
-            <ButtonLink>{hrefText}</ButtonLink>
+            <ButtonLink aria-describedby={id}>{hrefText}</ButtonLink>
           </Link>
         </StyledTileFoot>
       </StyledTileContent>
-      <StyledTileImage>TODO</StyledTileImage>
+      <StyledTileImage>
+        <Image src={imgUrl}
+               alt={imgAlt}
+               width={imgDimensions.width}
+               height={imgDimensions.height}
+               layout={'responsive'}
+               objectFit={'fill'} />
+      </StyledTileImage>
     </StyledTileContainer>
   );
 };

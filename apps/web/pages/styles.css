@@ -6,7 +6,13 @@
   --white: #fff;
   --pale-blue: #cec8fa;
   --vibrant-blue: #2654d1;
-  --gutter: 1.5rem;
+  --gutter: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 1.5rem;
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -43,4 +49,5 @@
 
 body {
   background-color: var(--background);
+  min-width: 320px;
 }

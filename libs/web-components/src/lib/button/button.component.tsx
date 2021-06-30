@@ -6,6 +6,7 @@ interface ButtonLinkProps extends HTMLAttributes<HTMLLinkElement> {
 }
 
 export const ButtonLink = styled.a<ButtonLinkProps>`
+  all: revert;
   display: inline-block;
   font-family: 'Josefin Sans', Arial, sans-serif;
   font-weight: normal;
@@ -20,9 +21,10 @@ export const ButtonLink = styled.a<ButtonLinkProps>`
   color: var(--secondary);
   transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
 
+  :active,
   :focus {
     outline-offset: 0.25rem;
     outline: transparent solid 2px;
-    box-shadow: 0 0 0 3px var(--secondary), 0 0 0 6px var(--primary);
+    box-shadow: 0 0 0 3px var(--secondary), 0 0 0 6px var(--interactive);
   }
 `;
