@@ -42,34 +42,30 @@ export const Type: FC<TypeProps> = ({
   );
 };
 
-export const H1: FC<TypeStyledProps> = ({ children, color }) =>
+export const H1: FC<TypeStyledProps> = (props) =>
   Type({
+    ...props,
     element: 'h1',
     size: 'xl',
-    color,
-    children
   });
 
-export const H2: FC<TypeStyledProps> = ({ children, color }) =>
+export const H2: FC<TypeStyledProps> = (props) =>
   Type({
+    ...props,
     element: 'h2',
     size: 'lg',
-    color,
-    children
   });
 
-export const H3: FC<TypeStyledProps> = ({ children, color }) =>
+export const H3: FC<TypeStyledProps> = (props) =>
   Type({
+    ...props,
     element: 'h2',
     size: 'md',
-    color,
-    children
   });
 
-export const P: FC<TypeStyledProps> = ({ children, color }) =>
+export const P: FC<TypeStyledProps> = (props) =>
   Type({
+    ...props,
     element: 'p',
     size: 'sm',
-    color,
-    children
   });

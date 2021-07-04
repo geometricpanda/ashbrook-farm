@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { HyperLink, H1, FreeText } from '@ashbrook-farm/web-components';
+import { FreeText, H1, Section } from '@ashbrook-farm/web-components';
 
-import { getAllBreeds, Breed, getBreed, ApiDocument } from '../../api';
-import { Section } from '@ashbrook-farm/web-components';
+import { ApiDocument, Breed, getBreed, getBreeds } from '../../api';
+import { getBreedPath } from '../../helpers';
 
 interface BreedsProps {
   data: ApiDocument<Breed>;
@@ -30,8 +30,8 @@ export const getStaticProps: GetStaticProps<BreedsProps> = async ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await getAllBreeds();
-  const paths = data.results.map((result) => `/breeds/${result.uid}`);
+  const data = await getBreeds({pageSize: 100});
+  const paths = data.results.map((breed) => getBreedPath(breed));
   return {
     paths,
     fallback: 'blocking',
@@ -41,8 +41,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const Breeds: FC<BreedsProps> = ({ data }) => {
   return (
     <Section>
-      <HyperLink href="/breeds">Back</HyperLink>
-      <H1>{data.data.name}</H1>
+      <H1 marginBottom>{data.data.name}</H1>
       <FreeText dangerouslySetInnerHTML={{ __html: data.data.content }} />
     </Section>
   );

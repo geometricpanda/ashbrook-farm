@@ -1,11 +1,10 @@
 import { FC, HTMLAttributes, useEffect, useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import shortid from 'shortid';
 
 import styles from './tile.module.css';
 
-import { H3, FreeText } from '../typography';
+import { FreeText, H3 } from '../typography';
 import { ButtonLink } from '../button';
 
 interface TileProps extends HTMLAttributes<HTMLDivElement> {

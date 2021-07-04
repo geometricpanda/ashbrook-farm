@@ -1,7 +1,7 @@
 .c-section {
   background-color: var(--background);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-gap: 1.5rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
@@ -35,12 +35,16 @@
 .c-section__content {
   flex-grow: 1;
   max-width: 1008px;
-  margin: auto;
   padding-left: var(--gutter);
   padding-right: var(--gutter);
 }
 
-.c-section__content--title {
+@media (--viewport-md) {
+  .c-section__content {
+    margin: auto;
+  }
+}
+
+.c-section__content--header {
   text-align: center;
-  margin-bottom: 1.5rem;
 }

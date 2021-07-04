@@ -27,6 +27,8 @@
   },
   "private": true,
   "dependencies": {
+    "@iconify/icons-ic": "^1.1.6",
+    "@iconify/react": "^1.1.4",
     "@nrwl/next": "12.4.0",
     "@prismicio/client": "^5.1.0",
     "core-js": "^3.6.5",
