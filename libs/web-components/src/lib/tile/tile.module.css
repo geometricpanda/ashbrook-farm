@@ -6,7 +6,7 @@
   margin-bottom: var(--gutter);
 }
 
-@media (--viewport-tablet) {
+@media (--viewport-md) {
   .c-tile {
     flex-direction: row;
     margin-bottom: 0;
@@ -26,7 +26,7 @@
   padding-bottom: 1.5rem;
 }
 
-@media (--viewport-tablet) {
+@media (--viewport-md) {
   .c-tile__content {
     padding-left: calc(((100% / 12) + 24px) / 2);
     padding-right: calc(((100% / 12) + 24px) / 2);
@@ -36,11 +36,9 @@
 
 /* Tile Image */
 .c-tile__image {
-  aspect-ratio: 1.5/1;
-  background-color: burlywood;
 }
 
-@media (--viewport-tablet) {
+@media (--viewport-md) {
   .c-tile__image {
     flex-basis: 50%;
   }
@@ -51,7 +49,7 @@
   margin-bottom: 1rem;
 }
 
-@media (--viewport-tablet) {
+@media (--viewport-md) {
   .c-tile__head {
     text-align: center;
   }
@@ -62,7 +60,7 @@
   margin-bottom: 1.5rem;
 }
 
-@media (--viewport-tablet) {
+@media (--viewport-md) {
   .c-tile__body {
     text-align: center;
   }
@@ -70,7 +68,7 @@
 
 /* Tile Foot */
 
-@media (--viewport-tablet) {
+@media (--viewport-md) {
   .c-tile__foot {
     text-align: center;
   }

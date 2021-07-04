@@ -39,8 +39,9 @@ export const Breeds: FC<BreedsProps> = ({ data }) => {
         </P>
       </Section>
       <Section secondary>
-        {data.results.map((result) => (
+        {data.results.map((result, index) => (
           <Tile
+            aboveFold={index < 2}
             imgUrl={result.data.preview_image.url}
             imgAlt={result.data.preview_image.alt}
             imgDimensions={result.data.preview_image.dimensions}

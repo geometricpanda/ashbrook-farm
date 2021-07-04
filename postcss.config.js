@@ -8,7 +8,9 @@ module.exports = {
     'postcss-custom-media': {
       importFrom: [{
         customMedia: {
-          '--viewport-tablet': '(width > 48em)'
+          '--viewport-md': '(width >= 48em)',
+          '--viewport-lg': '(width >= 64em)',
+          '--viewport-xl': '(width >= 80em)',
         }
       }]
     }

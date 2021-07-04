@@ -9,6 +9,7 @@ import { H3, FreeText } from '../typography';
 import { ButtonLink } from '../button';
 
 interface TileProps extends HTMLAttributes<HTMLDivElement> {
+  aboveFold: boolean,
   title: string;
   href: string;
   hrefText: string;
@@ -22,6 +23,7 @@ interface TileProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Tile: FC<TileProps> = ({
+  aboveFold,
   imgUrl,
   imgAlt,
   imgDimensions,
@@ -56,12 +58,13 @@ export const Tile: FC<TileProps> = ({
 
       <div className={styles['c-tile__image']}>
         <Image
+          priority={aboveFold}
           src={imgUrl}
           alt={imgAlt}
           width={imgDimensions.width}
           height={imgDimensions.height}
           layout={'responsive'}
-          objectFit={'fill'}
+          objectFit={'cover'}
         />
       </div>
     </div>
