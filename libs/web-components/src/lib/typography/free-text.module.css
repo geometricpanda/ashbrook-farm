@@ -1,0 +1,64 @@
+/* Free Text */
+.c-free-text {
+  font-family: 'Josefin Sans', Arial, sans-serif;
+  font-weight: normal;
+  color: var(--primary);
+}
+
+/* Free Text Secondary */
+.c-free-text--secondary {
+  color: var(--secondary);
+}
+
+.c-free-text h1 {
+  font-size: 2.25rem;
+  line-height: 2.625rem;
+  letter-spacing: -0.1rem;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+.c-free-text h2 {
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  letter-spacing: -0.1rem;
+  margin-bottom: 1rem;
+}
+
+.c-free-text p,
+.c-free-text li,
+.c-free-text a {
+  font-size: 1.125rem;
+  line-height: 1.74rem;
+  letter-spacing: -0.03rem;
+}
+
+.c-free-text p,
+.c-free-text li {
+  margin-bottom: 1rem;
+}
+
+.c-free-text a {
+  text-decoration: underline;
+  color: var(--interactive-link);
+}
+
+.c-free-text a:focus {
+  outline-offset: 0.25rem;
+  outline: transparent solid 2px;
+  box-shadow: 0 -2px 0 4px var(--background),
+  0 -2px 0 6px var(--interactive-link);
+}
+
+.c-free-text strong {
+  font-weight: bold;
+}
+
+.c-free-text em {
+  font-style: italic;
+}
+
+.c-free-text *:last-child {
+  margin-bottom: 0;
+}

@@ -1,4 +1,5 @@
 @import '~modern-css-reset';
+@custom-media --viewport-tablet (width > 48em);
 
 :root {
   --dark-blue: #34394a;
@@ -7,9 +8,10 @@
   --pale-blue: #cec8fa;
   --vibrant-blue: #2654d1;
   --gutter: 0.5rem;
+  color-scheme: light dark;
 }
 
-@media (min-width: 768px) {
+@media (--viewport-tablet) {
   :root {
     --gutter: 1.5rem;
   }

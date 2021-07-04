@@ -1,26 +1,12 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
 
-export default class CustomDocument extends Document<{
-  styleTags: ReactElement[];
-}> {
-  static getInitialProps({ renderPage }) {
-    const sheet = new ServerStyleSheet();
-
-    const page = renderPage((App) => (props) =>
-      sheet.collectStyles(<App {...props} />)
-    );
-
-    const styleTags = sheet.getStyleElement();
-
-    return { ...page, styleTags };
-  }
+export default class CustomDocument extends Document {
 
   render() {
     return (
       <Html lang="en">
-        <Head>{this.props.styleTags}</Head>
+        <Head></Head>
         <body>
           <Main />
           <NextScript />

@@ -1,0 +1,43 @@
+
+
+/* Type component */
+.c-type {
+  font-family: 'Josefin Sans', Arial, sans-serif;
+  font-weight: normal;
+  margin-bottom: 0;
+  color: var(--primary);
+  font-size: 1.125rem;
+  line-height: 1.74rem;
+  letter-spacing: -0.03rem;
+}
+
+/* Apply margin bottom */
+.c-type--margin-bottom {
+  margin-bottom: 1rem;
+}
+
+/* Secondary Colour */
+.c-type--secondary {
+  color: var(--secondary);
+}
+
+/* Extra Large Size */
+.c-type--size-xl {
+  font-size: 2.25rem;
+  line-height: 2.625rem;
+  letter-spacing: -0.1rem;
+}
+
+/* Large Size */
+.c-type--size-lg {
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  letter-spacing: -0.1rem;
+}
+
+/* Medium Size */
+.c-type--size-md {
+  font-size: 1.5rem;
+  line-height: 1.74rem;
+  letter-spacing: -0.03rem;
+}

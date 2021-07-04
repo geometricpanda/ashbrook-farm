@@ -1,8 +1,9 @@
 import { FC, HTMLAttributes, useEffect, useState } from 'react';
-import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 import shortid from 'shortid';
+
+import styles from './tile.module.css';
 
 import { H3, FreeText } from '../typography';
 import { ButtonLink } from '../button';
@@ -20,76 +21,15 @@ interface TileProps extends HTMLAttributes<HTMLDivElement> {
   imgAlt: string;
 }
 
-const StyledTileContainer = styled.div`
-  display: flex;
-  background-color: var(--secondary);
-  flex-direction: column-reverse;
-  margin-bottom: var(--gutter);
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    margin-bottom: 0;
-
-    :nth-of-type(even) {
-      flex-direction: row-reverse;
-    }
-  }
-
-`;
-
-const StyledTileContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-
-  @media (min-width: 768px) {
-    padding-left: calc(((100% / 12) + 24px) / 2);
-    padding-right: calc(((100% / 12) + 24px) / 2);
-    flex-basis: 50%;
-  }
-`;
-
-const StyledTileImage = styled.div`
-  aspect-ratio: 1.5/1;
-  background-color: burlywood;
-
-  @media (min-width: 768px) {
-    flex-basis: 50%;
-  }
-`;
-
-const StyledTileHead = styled.div`
-  margin-bottom: 1rem;
-  @media (max-width: 768px) {
-    text-align: center;
-  }
-`;
-
-const StyledTileBody = styled.div`
-  margin-bottom: 1.5rem;
-  @media (max-width: 768px) {
-    text-align: center;
-  }
-`;
-
-const StyledTileFoot = styled.div`
-  @media (max-width: 768px) {
-    text-align: center;
-  }
-`;
-
 export const Tile: FC<TileProps> = ({
-                                      imgUrl,
-                                      imgAlt,
-                                      imgDimensions,
-                                      title,
-                                      hrefText,
-                                      href,
-                                      content
-                                    }) => {
-
+  imgUrl,
+  imgAlt,
+  imgDimensions,
+  title,
+  hrefText,
+  href,
+  content,
+}) => {
   const [id, setId] = useState('');
 
   useEffect(() => {
@@ -97,28 +37,33 @@ export const Tile: FC<TileProps> = ({
   }, []);
 
   return (
-    <StyledTileContainer>
-      <StyledTileContent>
-        <StyledTileHead id={id}>
+    <div className={styles['c-tile']}>
+      <div className={styles['c-tile__content']}>
+        <div className={styles['c-tile__head']} id={id}>
           <H3>{title}</H3>
-        </StyledTileHead>
-        <StyledTileBody>
+        </div>
+
+        <div className={styles['c-tile__body']}>
           <FreeText dangerouslySetInnerHTML={{ __html: content }} />
-        </StyledTileBody>
-        <StyledTileFoot>
-          <Link href={href} passHref={true}>
-            <ButtonLink aria-describedby={id}>{hrefText}</ButtonLink>
-          </Link>
-        </StyledTileFoot>
-      </StyledTileContent>
-      <StyledTileImage>
-        <Image src={imgUrl}
-               alt={imgAlt}
-               width={imgDimensions.width}
-               height={imgDimensions.height}
-               layout={'responsive'}
-               objectFit={'fill'} />
-      </StyledTileImage>
-    </StyledTileContainer>
+        </div>
+
+        <div className={styles['c-tile__foot']}>
+          <ButtonLink href={href} aria-describedby={id}>
+            {hrefText}
+          </ButtonLink>
+        </div>
+      </div>
+
+      <div className={styles['c-tile__image']}>
+        <Image
+          src={imgUrl}
+          alt={imgAlt}
+          width={imgDimensions.width}
+          height={imgDimensions.height}
+          layout={'responsive'}
+          objectFit={'fill'}
+        />
+      </div>
+    </div>
   );
 };

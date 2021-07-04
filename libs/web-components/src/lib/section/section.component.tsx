@@ -1,6 +1,9 @@
-import styled from 'styled-components';
 import { FC } from 'react';
 import { H1 } from '../typography';
+
+import classnames from 'classnames';
+
+import styles from './section.module.css';
 
 interface SectionProps {
   secondary?: boolean;
@@ -8,50 +11,27 @@ interface SectionProps {
   paddingTop?: boolean;
 }
 
-const StyledSection = styled.section<SectionProps>`
-  ${({ secondary }) =>
-    secondary &&
-    `
-    --background: var(--background-invert);
-    --primary: var(--primary-invert);
-    --secondary: var(--secondary-invert);
-    --interactive: var(--interactive-invert);
-    --interactive-link: var(--interactive-link-invert);
-  `}
-  background-color: var(--background);
-  display: flex;
-  flex-direction: column;
-  padding-top: ${({ paddingTop }) => paddingTop ? '2rem' : '0'};
-  padding-bottom: 2rem;
+export const Section: FC<SectionProps> = ({ children, secondary, title, paddingTop = true }) => {
 
-  @media (min-width: 768px) {
-    padding-top: ${({ paddingTop }) => paddingTop ? '3rem' : '0'};
-    padding-bottom: 3rem;
-  }
-`;
+  const finalClassNames = classnames({
+    [styles['c-section']]: true,
+    [styles['c-section--secondary']]: secondary === true,
+    [styles['c-section--no-padding-top']]: paddingTop === false
+  });
 
-const StyledSectionContent = styled.div`
-  flex-grow: 1;
-  max-width: 1008px;
-  margin: auto;
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
-`;
+  return (
+    <section className={finalClassNames}>
 
-const StyledSectionTitle = styled.div`
-  text-align: center;
-  margin-bottom: 1.5rem;
-`;
-
-export const Section: FC<SectionProps> = ({ children, secondary, title, paddingTop = true }) => (
-  <StyledSection secondary={secondary} paddingTop={paddingTop}>
-    {title && (
-      <StyledSectionContent>
-        <StyledSectionTitle>
+      {title && (
+        <div className={classnames(styles['c-section__content'], styles['c-section__content--title'])}>
           <H1>{title}</H1>
-        </StyledSectionTitle>
-      </StyledSectionContent>
-    )}
-    <StyledSectionContent>{children}</StyledSectionContent>
-  </StyledSection>
-);
+        </div>
+      )}
+
+      <div className={classnames(styles['c-section__content'])}>
+        {children}
+      </div>
+    </section>
+  );
+
+};

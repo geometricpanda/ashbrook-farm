@@ -19,6 +19,7 @@ export const getStaticProps: GetStaticProps<BreedsProps> = async () => {
   };
 };
 
+
 export const Breeds: FC<BreedsProps> = ({ data }) => {
   return (
     <>

@@ -1,0 +1,46 @@
+.c-section {
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+@media (--viewport-tablet) {
+  .c-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+.c-section--secondary {
+  --background: var(--background-invert);
+  --primary: var(--primary-invert);
+  --secondary: var(--secondary-invert);
+  --interactive: var(--interactive-invert);
+  --interactive-link: var(--interactive-link-invert);
+}
+
+.c-section--no-padding-top {
+  padding-top: 0;
+}
+
+@media (--viewport-tablet) {
+  .c-section--no-padding-top {
+    padding-top: 0;
+  }
+}
+
+
+.c-section__content {
+  flex-grow: 1;
+  max-width: 1008px;
+  margin: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.c-section__content--title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}

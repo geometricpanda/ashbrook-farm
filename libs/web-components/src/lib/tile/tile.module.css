@@ -1,0 +1,77 @@
+/* Tile */
+.c-tile {
+  display: flex;
+  background-color: var(--secondary);
+  flex-direction: column-reverse;
+  margin-bottom: var(--gutter);
+}
+
+@media (--viewport-tablet) {
+  .c-tile {
+    flex-direction: row;
+    margin-bottom: 0;
+  }
+
+  .c-tile:nth-of-type(even) {
+    flex-direction: row-reverse;
+  }
+}
+
+/* Tile Content */
+.c-tile__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+@media (--viewport-tablet) {
+  .c-tile__content {
+    padding-left: calc(((100% / 12) + 24px) / 2);
+    padding-right: calc(((100% / 12) + 24px) / 2);
+    flex-basis: 50%;
+  }
+}
+
+/* Tile Image */
+.c-tile__image {
+  aspect-ratio: 1.5/1;
+  background-color: burlywood;
+}
+
+@media (--viewport-tablet) {
+  .c-tile__image {
+    flex-basis: 50%;
+  }
+}
+
+/* Tile Head */
+.c-tile__head {
+  margin-bottom: 1rem;
+}
+
+@media (--viewport-tablet) {
+  .c-tile__head {
+    text-align: center;
+  }
+}
+
+/* Tile Body */
+.c-tile__body {
+  margin-bottom: 1.5rem;
+}
+
+@media (--viewport-tablet) {
+  .c-tile__body {
+    text-align: center;
+  }
+}
+
+/* Tile Foot */
+
+@media (--viewport-tablet) {
+  .c-tile__foot {
+    text-align: center;
+  }
+}

@@ -8,7 +8,7 @@ const nextConfig = {
   },
   nx: {
     svgr: true
-  }
+  },
 };
 
 module.exports = withNx(nextConfig);

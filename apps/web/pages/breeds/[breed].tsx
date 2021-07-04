@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Link from 'next/link';
-import { A, H1, FreeText } from '@ashbrook-farm/web-components';
+import { HyperLink, H1, FreeText } from '@ashbrook-farm/web-components';
 
 import { getAllBreeds, Breed, getBreed, ApiDocument } from '../../api';
 import { Section } from '@ashbrook-farm/web-components';
@@ -42,9 +41,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const Breeds: FC<BreedsProps> = ({ data }) => {
   return (
     <Section>
-      <Link href="/breeds" passHref>
-        <A>Back</A>
-      </Link>
+      <HyperLink href="/breeds">Back</HyperLink>
       <H1>{data.data.name}</H1>
       <FreeText dangerouslySetInnerHTML={{ __html: data.data.content }} />
     </Section>
