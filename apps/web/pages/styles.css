@@ -5,6 +5,7 @@
 @custom-media --viewport-xl (width >= 80em);
 
 :root {
+  --font-family: 'Josefin Sans', Arial, sans-serif;
   --dark-blue: #34394a;
   --cream: #faecdd;
   --white: #fff;

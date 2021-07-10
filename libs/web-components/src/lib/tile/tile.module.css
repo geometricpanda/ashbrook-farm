@@ -32,6 +32,10 @@
     padding-right: calc(((100% / 12) + 24px) / 2);
     flex-basis: 50%;
   }
+
+  .c-tile:nth-of-type(even) .c-tile__content {
+    padding-left: 0;
+  }
 }
 
 /* Tile Image */
@@ -47,29 +51,34 @@
 /* Tile Head */
 .c-tile__head {
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 @media (--viewport-md) {
   .c-tile__head {
-    text-align: center;
+    text-align: left;
   }
 }
 
 /* Tile Body */
 .c-tile__body {
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 @media (--viewport-md) {
   .c-tile__body {
-    text-align: center;
+    text-align: left;
   }
 }
 
 /* Tile Foot */
+.c-tile__foot {
+  text-align: center;
+}
 
 @media (--viewport-md) {
   .c-tile__foot {
-    text-align: center;
+    text-align: left;
   }
 }

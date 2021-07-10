@@ -1,7 +1,7 @@
 /* Link Component */
 .c-link {
   display: inline-block;
-  font-family: 'Josefin Sans', Arial, sans-serif;
+  font-family: var(--font-family);
   font-weight: normal;
   font-size: 1.125rem;
   line-height: 1.74rem;
@@ -15,5 +15,5 @@
   outline-offset: 0.25rem;
   outline: transparent solid 2px;
   box-shadow: 0 -2px 0 4px var(--background),
-  0 -2px 0 6px var(--interactive-link);
+    0 -2px 0 6px var(--interactive-link);
 }

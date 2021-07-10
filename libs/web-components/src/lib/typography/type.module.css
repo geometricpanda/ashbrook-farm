@@ -1,8 +1,6 @@
-
-
 /* Type component */
 .c-type {
-  font-family: 'Josefin Sans', Arial, sans-serif;
+  font-family: var(--font-family);
   font-weight: normal;
   margin-bottom: 0;
   color: var(--primary);

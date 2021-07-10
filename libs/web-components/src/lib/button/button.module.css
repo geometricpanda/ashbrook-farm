@@ -11,7 +11,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Josefin Sans', Arial, sans-serif;
+  font-family: var(--font-family);
   font-weight: normal;
   font-size: 1.175rem;
   line-height: 1.175rem;

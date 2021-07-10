@@ -1,6 +1,6 @@
 /* Free Text */
 .c-free-text {
-  font-family: 'Josefin Sans', Arial, sans-serif;
+  font-family: var(--font-family);
   font-weight: normal;
   color: var(--primary);
 }
@@ -48,7 +48,7 @@
   outline-offset: 0.25rem;
   outline: transparent solid 2px;
   box-shadow: 0 -2px 0 4px var(--background),
-  0 -2px 0 6px var(--interactive-link);
+    0 -2px 0 6px var(--interactive-link);
 }
 
 .c-free-text strong {
