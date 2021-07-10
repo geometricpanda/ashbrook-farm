@@ -11,7 +11,7 @@
   --pale-blue: #cec8fa;
   --vibrant-blue: #2654d1;
   --gutter: 0.5rem;
-  color-scheme: light dark;
+  /*color-scheme: light dark;*/
 }
 
 @media (--viewport-md) {
@@ -22,7 +22,7 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --background: var(--white);
+    --background: var(--cream);
     --primary: var(--dark-blue);
     --secondary: var(--cream);
     --interactive: var(--dark-blue);

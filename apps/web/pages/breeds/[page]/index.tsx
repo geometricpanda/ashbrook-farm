@@ -1,21 +1,13 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
-import { FC, useEffect, useRef } from 'react';
+import { FC } from 'react';
 import baselineChevronRight from '@iconify/icons-ic/baseline-chevron-right';
 import baselineChevronLeft from '@iconify/icons-ic/baseline-chevron-left';
 
-import {
-  ButtonGroup,
-  ButtonLink,
-  Focus,
-  H1,
-  Section,
-  Tile,
-} from '@ashbrook-farm/web-components';
+import { ButtonGroup, ButtonLink, H1, Section, Tile } from '@ashbrook-farm/web-components';
 
 import { ApiResponse, Breed, getBreeds } from '../../../api';
 import { getBreedPath, getBreedsPagination } from '../../../helpers';
-import { useRouter } from 'next/router';
 
 interface BreedsProps {
   data: ApiResponse<Breed>;
@@ -25,7 +17,7 @@ export const getStaticProps: GetStaticProps<BreedsProps> = async ({
   params,
 }) => {
   const { page } = params;
-  const data = await getBreeds({ page: +page, pageSize: 1 });
+  const data = await getBreeds({ page: +page, pageSize: 3 });
 
   return {
     revalidate: 60,
@@ -89,11 +81,9 @@ export const Pagination: FC<BreedsProps> = ({ data }) => {
 
       <Section
         header={
-          <Focus>
             <H1>
               Our Birds - Page {page} of {total_pages}
             </H1>
-          </Focus>
         }
         footer={
           <ButtonGroup>
@@ -104,7 +94,6 @@ export const Pagination: FC<BreedsProps> = ({ data }) => {
       >
         {results.map((result, index) => (
           <Tile
-            aboveFold={index < 3}
             imgUrl={result.data.preview_image.url}
             imgAlt={result.data.preview_image.alt}
             imgDimensions={result.data.preview_image.dimensions}

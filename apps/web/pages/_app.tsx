@@ -9,16 +9,14 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Welcome to web!</title>
         <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin="true" />
-        <link href='https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap' rel='stylesheet'/>
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='true' />
+        <link href='https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap' rel='stylesheet' />
       </Head>
-      <div className='app'>
-        <main>
-          <Component {...pageProps} />
-        </main>
-      </div>
+      <main>
+        <Component {...pageProps} />
+      </main>
     </>
-);
+  );
 }
 
 export default CustomApp;

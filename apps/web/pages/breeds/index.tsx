@@ -1,14 +1,7 @@
 import { FC } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import {
-  ButtonLink,
-  Focus,
-  H1,
-  P,
-  Section,
-  Tile,
-} from '@ashbrook-farm/web-components';
+import { ButtonLink, H1, P, Section, Tile } from '@ashbrook-farm/web-components';
 
 import { ApiResponse, Breed, getBreeds } from '../../api';
 import { getBreedPath, getBreedsPagination } from '../../helpers';
@@ -40,9 +33,7 @@ export const Breeds: FC<BreedsProps> = ({ data }) => {
 
       <Section
         header={
-          <Focus>
             <H1>Our Birds</H1>
-          </Focus>
         }
       >
         <P marginBottom>
@@ -64,9 +55,8 @@ export const Breeds: FC<BreedsProps> = ({ data }) => {
           </ButtonLink>
         }
       >
-        {data.results.map((result, index) => (
+        {data.results.map((result) => (
           <Tile
-            aboveFold={index < 3}
             imgUrl={result.data.preview_image.url}
             imgAlt={result.data.preview_image.alt}
             imgDimensions={result.data.preview_image.dimensions}

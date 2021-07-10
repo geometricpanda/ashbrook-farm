@@ -2,7 +2,7 @@
 .c-tile {
   display: flex;
   background-color: var(--secondary);
-  flex-direction: column-reverse;
+  flex-direction: column;
   margin-bottom: var(--gutter);
 }
 

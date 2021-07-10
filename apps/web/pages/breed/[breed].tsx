@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { FreeText, H1, Section, Focus } from '@ashbrook-farm/web-components';
+import { FreeText, H1, Section } from '@ashbrook-farm/web-components';
 
 import { ApiDocument, Breed, getBreed, getBreeds } from '../../api';
 import { getBreedPath } from '../../helpers';
@@ -10,22 +10,22 @@ interface BreedsProps {
 }
 
 export const getStaticProps: GetStaticProps<BreedsProps> = async ({
-  params,
-}) => {
+                                                                    params
+                                                                  }) => {
   const { breed } = params;
   const data = await getBreed(breed as string);
 
   if (!data) {
     return {
-      notFound: true,
+      notFound: true
     };
   }
 
   return {
     revalidate: 60,
     props: {
-      data,
-    },
+      data
+    }
   };
 };
 
@@ -34,16 +34,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = data.results.map((breed) => getBreedPath(breed));
   return {
     paths,
-    fallback: 'blocking',
+    fallback: 'blocking'
   };
 };
 
 export const Breeds: FC<BreedsProps> = ({ data }) => {
   return (
     <Section>
-      <Focus>
-        <H1 marginBottom>{data.data.name}</H1>
-      </Focus>
+      <H1 marginBottom>{data.data.name}</H1>
       <FreeText dangerouslySetInnerHTML={{ __html: data.data.content }} />
     </Section>
   );
