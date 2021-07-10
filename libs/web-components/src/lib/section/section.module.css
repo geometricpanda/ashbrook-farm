@@ -2,8 +2,7 @@
   background-color: var(--background);
   display: grid;
   grid-gap: 1.5rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding: 2rem 0;
 }
 
 @media (--viewport-md) {
@@ -35,8 +34,7 @@
 .c-section__content {
   flex-grow: 1;
   max-width: 1008px;
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
+  padding: 0 var(--gutter);
 }
 
 @media (--viewport-md) {
@@ -47,4 +45,14 @@
 
 .c-section__content--header {
   text-align: center;
+}
+
+.c-section__content--footer {
+  margin-top: -1rem;
+}
+
+@media (--viewport-md) {
+  .c-section__content--footer {
+    margin-top: unset;
+  }
 }

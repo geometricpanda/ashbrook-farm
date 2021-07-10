@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import { ButtonLink, H1, P, Section, Tile } from '@ashbrook-farm/web-components';
+import { ButtonGroup, ButtonLink, H1, P, Section, Tile } from '@ashbrook-farm/web-components';
 
 import { ApiResponse, Breed, getBreeds } from '../../api';
 import { getBreedPath, getBreedsPagination } from '../../helpers';
@@ -50,9 +50,11 @@ export const Breeds: FC<BreedsProps> = ({ data }) => {
       <Section
         secondary
         footer={
-          <ButtonLink secondary href={getBreedsPagination(1)}>
-            View More
-          </ButtonLink>
+          <ButtonGroup>
+            <ButtonLink secondary href={getBreedsPagination(1)}>
+              View More
+            </ButtonLink>
+          </ButtonGroup>
         }
       >
         {data.results.map((result) => (
