@@ -6,9 +6,11 @@ import styles from './tile.module.css';
 
 import { FreeText, H3 } from '../typography';
 import { ButtonLink } from '../button';
+import classnames from 'classnames';
 
 interface TileProps extends HTMLAttributes<HTMLDivElement> {
   aboveFold?: boolean,
+  secondary?: boolean,
   title: string;
   href: string;
   hrefText: string;
@@ -30,6 +32,7 @@ export const Tile: FC<TileProps> = ({
   hrefText,
   href,
   content,
+  secondary,
 }) => {
   const [id, setId] = useState('');
 
@@ -37,8 +40,13 @@ export const Tile: FC<TileProps> = ({
     setId(shortid());
   }, []);
 
+  const className = classnames({
+    [styles['c-tile']]: true,
+    [styles['c-tile--secondary']]: secondary,
+  })
+
   return (
-    <div className={styles['c-tile']}>
+    <div className={className}>
 
       <div className={styles['c-tile__image']}>
         <Image

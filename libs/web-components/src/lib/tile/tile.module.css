@@ -6,6 +6,14 @@
   margin-bottom: var(--gutter);
 }
 
+.c-tile--secondary {
+  --background: var(--background-invert);
+  --primary: var(--primary-invert);
+  --secondary: var(--secondary-invert);
+  --interactive: var(--interactive-invert);
+  --interactive-link: var(--interactive-link-invert);
+}
+
 @media (--viewport-md) {
   .c-tile {
     flex-direction: row;
@@ -31,10 +39,6 @@
     padding-left: calc(((100% / 12) + 24px) / 2);
     padding-right: calc(((100% / 12) + 24px) / 2);
     flex-basis: 50%;
-  }
-
-  .c-tile:nth-of-type(even) .c-tile__content {
-    padding-left: 0;
   }
 }
 

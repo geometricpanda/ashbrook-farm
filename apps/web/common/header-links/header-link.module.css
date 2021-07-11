@@ -2,7 +2,7 @@
   display: inline-block;
   font-family: var(--font-family);
   font-size: 1.125rem;
-  color: var(--dark-blue);
+  color: var(--primary);
   text-decoration: none;
   font-weight: normal;
   line-height: 1.82rem;
@@ -15,7 +15,7 @@
 .c-header-link:focus {
   outline-offset: 0.25rem;
   outline: transparent solid 2px;
-  box-shadow: 0 0 0 2px inset var(--dark-blue);
+  box-shadow: 0 0 0 2px inset var(--primary);
 }
 
 .c-header-link__inner {
@@ -24,5 +24,5 @@
 }
 
 .c-header-link--active .c-header-link__inner {
-  border-bottom-color: var(--dark-blue);
+  border-bottom-color: var(--primary);
 }

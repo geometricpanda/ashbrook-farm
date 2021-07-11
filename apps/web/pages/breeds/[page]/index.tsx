@@ -126,6 +126,7 @@ export const Pagination: FC<BreedsProps> = ({ data, page }) => {
             href={getBreedPath(result)}
             content={result.data.intro}
             hrefText="Find Out More"
+            secondary
           />
         ))}
       </Section>

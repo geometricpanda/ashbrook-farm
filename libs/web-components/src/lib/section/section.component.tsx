@@ -5,22 +5,14 @@ import classnames from 'classnames';
 import styles from './section.module.css';
 
 interface SectionProps {
-  secondary?: boolean;
   header?: ReactNode;
   footer?: ReactNode;
-  paddingTop?: boolean;
 }
 
-export const Section: FC<SectionProps> = ({ children, secondary, header, footer, paddingTop = true }) => {
-
-  const finalClassNames = classnames({
-    [styles['c-section']]: true,
-    [styles['c-section--secondary']]: secondary === true,
-    [styles['c-section--no-padding-top']]: paddingTop === false
-  });
+export const Section: FC<SectionProps> = ({ children, header, footer }) => {
 
   return (
-    <section className={finalClassNames}>
+    <section className={styles['c-section']}>
 
       {header && (
         <div className={classnames(styles['c-section__content'], styles['c-section__content--header'])}>

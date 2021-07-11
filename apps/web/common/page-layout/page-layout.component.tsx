@@ -30,7 +30,6 @@ export const PageLayout: FC<PageLayoutProps> = ({ page, breeds }) => {
       </Section>
       {breeds && (
         <Section
-          secondary
           footer={
             <ButtonGroup>
               <ButtonLink secondary href={getBreedsPagination(1)}>
@@ -49,6 +48,7 @@ export const PageLayout: FC<PageLayoutProps> = ({ page, breeds }) => {
               href={getBreedPath(breed)}
               content={breed.data.intro}
               hrefText="Find Out More"
+              secondary
             />
           ))}
         </Section>
