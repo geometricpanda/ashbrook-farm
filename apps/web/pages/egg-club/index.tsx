@@ -11,6 +11,7 @@ export const getStaticProps: GetStaticProps<EggClubProps> = async () => {
   const page = await getPage('egg-club');
   return {
     props: {
+      revalidate: 60,
       page,
     },
   };
