@@ -25,7 +25,7 @@ export const PageLayout: FC<PageLayoutProps> = ({ page, breeds }) => {
         <meta name="description" content={page.data.meta_description} />
       </Head>
       <Hero image={page.data.hero} />
-      <Section header={<H1>{page.data.title}</H1>}>
+      <Section header={<H1 marginBottom>{page.data.title}</H1>}>
         <FreeText dangerouslySetInnerHTML={{ __html: page.data.content }} />
       </Section>
       {breeds && (
