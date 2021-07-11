@@ -1,5 +1,6 @@
 /* Link Component */
 .c-link {
+  will-change: auto;
   display: inline-block;
   font-family: var(--font-family);
   font-weight: normal;
@@ -8,7 +9,7 @@
   letter-spacing: -0.03rem;
   text-decoration: underline;
   color: var(--interactive-link);
-  transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
 }
 
 .c-link:focus {

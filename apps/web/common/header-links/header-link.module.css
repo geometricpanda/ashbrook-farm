@@ -1,0 +1,28 @@
+.c-header-link {
+  display: inline-block;
+  font-family: var(--font-family);
+  font-size: 1.125rem;
+  color: var(--dark-blue);
+  text-decoration: none;
+  font-weight: normal;
+  line-height: 1.82rem;
+  letter-spacing: -0.03rem;
+  padding: 0.6rem 0.5rem 0.4rem;
+  transition: box-shadow 0.1s ease-in-out;
+}
+
+.c-header-link:active,
+.c-header-link:focus {
+  outline-offset: 0.25rem;
+  outline: transparent solid 2px;
+  box-shadow: 0 0 0 2px inset var(--dark-blue);
+}
+
+.c-header-link__inner {
+  border-bottom: 2px solid transparent;
+  transition: border-bottom-color 0.1s ease-in-out;
+}
+
+.c-header-link--active .c-header-link__inner {
+  border-bottom-color: var(--dark-blue);
+}

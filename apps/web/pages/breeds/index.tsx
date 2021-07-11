@@ -11,7 +11,7 @@ interface BreedsProps {
 }
 
 export const getStaticProps: GetStaticProps<BreedsProps> = async () => {
-  const data = await getBreeds({ pageSize: 3 });
+  const data = await getBreeds({ pageSize: 2 });
   return {
     revalidate: 60,
     props: {

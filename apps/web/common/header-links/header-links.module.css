@@ -1,0 +1,11 @@
+.c-header-links {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media (--viewport-md) {
+  .c-header-links {
+    flex-direction: row;
+  }
+}

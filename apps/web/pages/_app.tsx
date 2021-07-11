@@ -3,6 +3,8 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.css';
 import { Header } from '../common/header';
+import { HeaderLink, HeaderLinks } from '../common/header-links';
+import { getBreedsPath } from '../helpers';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -21,7 +23,12 @@ function CustomApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       <main>
-        <Header />
+        <Header>
+          <HeaderLinks>
+            <HeaderLink href='/'>Home</HeaderLink>
+            <HeaderLink href={getBreedsPath()}>Our Birds</HeaderLink>
+          </HeaderLinks>
+        </Header>
         <Component {...pageProps} />
       </main>
     </>
