@@ -5,12 +5,12 @@ const nextConfig = {
   target: 'experimental-serverless-trace',
 
   images: {
-    deviceSizes: [320, 360, 768, 1024, 1200],
+    deviceSizes: [320, 360, 768, 1024, 1200, 1920],
     domains: ['images.prismic.io'],
   },
 
   nx: {
-    svgr: true
+    svgr: true,
   },
 
   async redirects() {
@@ -20,7 +20,7 @@ const nextConfig = {
         destination: '/breeds',
         permanent: true,
       },
-    ]
+    ];
   },
 };
 

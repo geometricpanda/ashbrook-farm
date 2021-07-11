@@ -4,7 +4,7 @@ import Head from 'next/head';
 import './styles.css';
 import { Header } from '../common/header';
 import { HeaderLink, HeaderLinks } from '../common/header-links';
-import { getBreedsPath } from '../helpers';
+import { getBreedsPath, getEggClubPath } from '../helpers';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -25,8 +25,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <main>
         <Header>
           <HeaderLinks>
-            <HeaderLink href='/'>Home</HeaderLink>
+            <HeaderLink href="/">Home</HeaderLink>
             <HeaderLink href={getBreedsPath()}>Our Birds</HeaderLink>
+            <HeaderLink href={getEggClubPath()}>Egg Club</HeaderLink>
           </HeaderLinks>
         </Header>
         <Component {...pageProps} />

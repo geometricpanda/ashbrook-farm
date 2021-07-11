@@ -2,13 +2,13 @@
   background-color: var(--background);
   display: grid;
   grid-gap: 1.5rem;
-  padding: 2rem 0;
+  padding: 1rem 0;
+  width: 100%;
 }
 
 @media (--viewport-md) {
   .c-section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding: 2rem 0;
   }
 }
 

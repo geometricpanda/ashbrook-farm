@@ -1,0 +1,23 @@
+.c-hero {
+  background-color: var(--primary);
+  box-sizing: content-box;
+  border-bottom: 1rem solid var(--primary);
+}
+
+.c-hero__inner {
+  max-width: 1200px;
+  aspect-ratio: 4 / 1;
+  margin: auto;
+}
+
+.c-hero__img {
+  vertical-align: middle;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+@media (--viewport-md) {
+  .c-hero {
+    border-bottom: 1.5rem solid var(--primary);
+  }
+}

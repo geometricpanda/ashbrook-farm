@@ -4,25 +4,43 @@ import { FC } from 'react';
 import baselineChevronRight from '@iconify/icons-ic/baseline-chevron-right';
 import baselineChevronLeft from '@iconify/icons-ic/baseline-chevron-left';
 
-import { ButtonGroup, ButtonLink, H1, Section, Tile } from '@ashbrook-farm/web-components';
+import {
+  ButtonGroup,
+  ButtonLink,
+  H1,
+  H2,
+  Hero,
+  Section,
+  Tile,
+} from '@ashbrook-farm/web-components';
 
-import { ApiResponse, Breed, getBreeds } from '../../../api';
+import {
+  ApiDocument,
+  ApiResponse,
+  Breed,
+  getBreeds,
+  getPage,
+  Page,
+} from '../../../api';
 import { getBreedPath, getBreedsPagination } from '../../../helpers';
 
 interface BreedsProps {
   data: ApiResponse<Breed>;
+  page: ApiDocument<Page>;
 }
 
 export const getStaticProps: GetStaticProps<BreedsProps> = async ({
   params,
 }) => {
-  const { page } = params;
-  const data = await getBreeds({ page: +page, pageSize: 3 });
+  const { page: pageNumber } = params;
+  const data = await getBreeds({ page: +pageNumber, pageSize: 3 });
+  const page = await getPage('breeds');
 
   return {
     revalidate: 60,
     props: {
       data,
+      page,
     },
   };
 };
@@ -41,10 +59,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const Pagination: FC<BreedsProps> = ({ data }) => {
-  const { results, page, total_pages } = data;
-  const nextPage = page + 1;
-  const prevPage = page - 1;
+export const Pagination: FC<BreedsProps> = ({ data, page }) => {
+  const { results, page: pageNumber, total_pages } = data;
+  const nextPage = pageNumber + 1;
+  const prevPage = pageNumber - 1;
   const showPrev = prevPage > 0;
   const showNext = nextPage <= total_pages;
 
@@ -75,15 +93,21 @@ export const Pagination: FC<BreedsProps> = ({ data }) => {
     <>
       <Head>
         <title>
-          Our Breeds - Page {page} of {total_pages} - Ashbrook Farm
+          {page.data.title} - Page {pageNumber} of {total_pages} - Ashbrook Farm
         </title>
+        <meta name="description" content={page.data.meta_description} />
       </Head>
+
+      <Hero image={page.data.hero} />
 
       <Section
         header={
-            <H1>
-              Our Birds - Page {page} of {total_pages}
-            </H1>
+          <>
+            <H1 marginBottom>Our Birds </H1>
+            <H2 marginBottom>
+              Page {pageNumber} of {total_pages}
+            </H2>
+          </>
         }
         footer={
           <ButtonGroup>
