@@ -5,7 +5,7 @@ const nextConfig = {
   target: 'experimental-serverless-trace',
 
   images: {
-    deviceSizes: [320, 360, 768, 1024, 1200, 1920],
+    deviceSizes: [320, 360, 768, 1024, 1200],
     domains: ['images.prismic.io'],
   },
 
